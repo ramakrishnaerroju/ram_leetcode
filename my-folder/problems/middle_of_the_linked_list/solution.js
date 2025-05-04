@@ -9,20 +9,13 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var middleNode = function(head) {
-    let arr=[];
-    let current = head;
-    let prev = head;
-    while(current){
-        arr.push(head.val);
-        current = current.next;
+var middleNode = function (head) {
+    let s = head;
+    let f = head;
+
+    while (f != null && f.next != null) {
+        s = s.next;
+        f = f.next.next;
     }
-    let mid = Math.floor(arr.length/2);
-    
-    console.log(mid)
-    while(mid>0){
-         prev = prev.next;
-        mid--;
-     }
-    return prev;
+    return s;
 };

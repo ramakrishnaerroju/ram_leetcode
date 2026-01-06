@@ -4,14 +4,13 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    let hMap = new Map();
- 
+    let map = {}
     for(let i=0;i<nums.length;i++){
-        if(hMap.has(target-nums[i])){
-            return [hMap.get(target-nums[i]),i]
-        }else{
-            hMap.set(nums[i],i);
-        }
+       let r = target - nums[i];
+       if(map[r] !== undefined){
+        return [map[r], i];
+       }
+       map[nums[i]] = i; 
     }
-    return null;
+    
 };
